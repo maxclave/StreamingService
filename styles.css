@@ -129,6 +129,13 @@ footer p {
   margin-top: 2rem;
 }
 
+#watchlistMovies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 .movie-item {
   background: #1f1f1f;
   border-radius: 8px;
@@ -279,4 +286,81 @@ footer p {
 
 .watchlist-btn:hover {
   background-color: #e64a19;
+}
+
+.site-footer {
+  background-color: #1f1f1f; /* Тёмный фон */
+  color: #ccc;
+  padding: 1rem 0;
+  border-top: 1px solid #333;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;     /* Центрируем по горизонтали */
+  padding: 0 1rem;
+  display: flex;      /* ВКЛЮЧАЕМ flex */
+  justify-content: space-between; /* Разносим детей по краям */
+  align-items: center; /* Выравниваем по вертикали */
+  /* Если хотите, чтобы на маленьких экранах они тоже оставались в 1 строке,
+     уберите или измените свойство flex-wrap. */
+  flex-wrap: wrap;    
+}
+
+/* Ссылки слева на одной строке */
+.footer-links {
+  display: flex;
+  gap: 1rem;          /* Расстояние между ссылками */
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* Блок копирайта и соцсетей (справа) */
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;          /* Убираем любые внешние отступы */
+}
+
+.footer-copy p {
+  margin: 0;
+}
+
+/* Соцсети */
+.footer-socials a {
+  margin-left: 0.5rem; /* либо используйте gap, если вы делаете .footer-socials { display: flex; } */
+}
+
+.footer-socials a img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
+
+.footer-socials a:hover img {
+  filter: none;       /* Убираем серость при наведении */
+}
+
+/* Адаптив: если хотите, чтобы на очень узком экране 
+   копирайт уходил вниз, оставляем flex-wrap: wrap в .footer-container */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-copy {
+    margin-top: 1rem;
+  }
 }
