@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн Кинотеатр</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎬 Онлайн Кинотеатр</h1>
+    <div class="search-container">
+      <input type="text" id="searchBar" placeholder="Поиск фильмов...">
+      <div class="filters">
+        <select id="genreFilter">
+          <option value="">Жанр</option>
+          <!-- Жанры будут добавлены динамически -->
+        </select>
+        <select id="yearFilter">
+          <option value="">Год</option>
+          <!-- Годы будут добавлены динамически -->
+        </select>
+        <select id="ratingFilter">
+          <option value="">Оценка</option>
+          <option value="9">9 и выше</option>
+          <option value="8">8 и выше</option>
+          <option value="7">7 и выше</option>
+          <option value="6">6 и выше</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main>
+    <ul id="movieList">
+      <!-- Фильмы будут добавлены с помощью JS -->
+    </ul>
+  </main>
+  <footer>
+    <p>© 2023 Онлайн Кинотеатр</p>
+  </footer>
+  <script src="movies.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
