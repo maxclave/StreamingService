@@ -197,6 +197,7 @@ footer p {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .movie-item:hover::before {
@@ -244,4 +245,38 @@ footer p {
 .movie-item {
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
+}
+
+.watchlist-link {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #ff5722;
+  font-size: 1rem;
+}
+
+.watchlist-link:hover {
+  text-decoration: underline;
+}
+.movie-actions {
+  position: relative; 
+  padding: 0.5rem 1rem 1rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.watchlist-btn {
+  position: relative; 
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  z-index: 3;
+}
+
+.watchlist-btn:hover {
+  background-color: #e64a19;
 }

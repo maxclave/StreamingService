@@ -1,5 +1,39 @@
-// Предполагается, что файл movies.js уже загружен и переменная movies доступна
+// Предполагается, что файл movies.js уже загружен и переменная movies доступна.
 
+// --------------------------
+// Watch List Logic
+// --------------------------
+function getWatchList() {
+  const watchList = localStorage.getItem('watchList');
+  return watchList ? JSON.parse(watchList) : [];
+}
+
+function saveWatchList(watchListArray) {
+  localStorage.setItem('watchList', JSON.stringify(watchListArray));
+}
+
+function isInWatchList(movieTitle) {
+  const watchList = getWatchList();
+  return watchList.includes(movieTitle);
+}
+
+function addToWatchList(movieTitle) {
+  const watchList = getWatchList();
+  if (!watchList.includes(movieTitle)) {
+    watchList.push(movieTitle);
+    saveWatchList(watchList);
+  }
+}
+
+function removeFromWatchList(movieTitle) {
+  let watchList = getWatchList();
+  watchList = watchList.filter(title => title !== movieTitle);
+  saveWatchList(watchList);
+}
+
+// --------------------------
+// Основной код
+// --------------------------
 const searchBar = document.getElementById('searchBar');
 const movieList = document.getElementById('movieList');
 const genreFilter = document.getElementById('genreFilter');
@@ -43,18 +77,10 @@ function displayMovies() {
 
   movies
     .filter(movie => {
-      // Фильтр по тексту поиска
       const matchesText = movie.title.toLowerCase().includes(filterText);
-
-      // Фильтр по жанру
       const matchesGenre = selectedGenre ? movie.genre === selectedGenre : true;
-
-      // Фильтр по году
       const matchesYear = selectedYear ? movie.releaseDate === selectedYear : true;
-
-      // Фильтр по оценке
       const matchesRating = selectedRating ? movie.rating >= parseFloat(selectedRating) : true;
-
       return matchesText && matchesGenre && matchesYear && matchesRating;
     })
     .forEach((movie, index) => {
@@ -62,6 +88,7 @@ function displayMovies() {
       li.classList.add('movie-item');
       li.style.animationDelay = `${index * 0.1}s`;
 
+      // По клику на карточку - переходим на player.html
       li.onclick = () => {
         window.location.href = `player.html?movie=${encodeURIComponent(movie.url)}`;
       };
@@ -74,8 +101,37 @@ function displayMovies() {
       titleDiv.classList.add('movie-title');
       titleDiv.textContent = movie.title;
 
+      // --- Watchlist button / actions ---
+      const actionsDiv = document.createElement('div');
+      actionsDiv.classList.add('movie-actions');
+
+      const watchListButton = document.createElement('button');
+      watchListButton.classList.add('watchlist-btn');
+
+      // Проверяем, есть ли фильм в watchList
+      if (isInWatchList(movie.title)) {
+        watchListButton.textContent = "Удалить из списка";
+        watchListButton.addEventListener('click', (event) => {
+          event.stopPropagation(); // чтобы не переходить на плеер
+          removeFromWatchList(movie.title);
+          displayMovies(); // Обновим список
+        });
+      } else {
+        watchListButton.textContent = "Добавить в список";
+        watchListButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          addToWatchList(movie.title);
+          displayMovies();
+        });
+      }
+
+      actionsDiv.appendChild(watchListButton);
+
+      // Добавляем всё в li
       li.appendChild(posterDiv);
       li.appendChild(titleDiv);
+      li.appendChild(actionsDiv);
+
       movieList.appendChild(li);
     });
 }
