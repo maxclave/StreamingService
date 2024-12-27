@@ -1,8 +1,4 @@
-// Предполагается, что файл movies.js уже загружен и переменная movies доступна.
-
-// --------------------------
-// Watch List Logic
-// --------------------------
+// Watch List Logic methods
 function getWatchList() {
   const watchList = localStorage.getItem('watchList');
   return watchList ? JSON.parse(watchList) : [];
@@ -31,9 +27,6 @@ function removeFromWatchList(movieTitle) {
   saveWatchList(watchList);
 }
 
-// --------------------------
-// Основной код
-// --------------------------
 const searchBar = document.getElementById('searchBar');
 const movieList = document.getElementById('movieList');
 const genreFilter = document.getElementById('genreFilter');
@@ -88,7 +81,6 @@ function displayMovies() {
       li.classList.add('movie-item');
       li.style.animationDelay = `${index * 0.1}s`;
 
-      // По клику на карточку - переходим на player.html
       li.onclick = () => {
         window.location.href = `player.html?movie=${encodeURIComponent(movie.url)}`;
       };
@@ -108,13 +100,12 @@ function displayMovies() {
       const watchListButton = document.createElement('button');
       watchListButton.classList.add('watchlist-btn');
 
-      // Проверяем, есть ли фильм в watchList
       if (isInWatchList(movie.title)) {
         watchListButton.textContent = "Удалить из списка";
         watchListButton.addEventListener('click', (event) => {
-          event.stopPropagation(); // чтобы не переходить на плеер
+          event.stopPropagation();
           removeFromWatchList(movie.title);
-          displayMovies(); // Обновим список
+          displayMovies();
         });
       } else {
         watchListButton.textContent = "Добавить в список";
@@ -127,7 +118,6 @@ function displayMovies() {
 
       actionsDiv.appendChild(watchListButton);
 
-      // Добавляем всё в li
       li.appendChild(posterDiv);
       li.appendChild(titleDiv);
       li.appendChild(actionsDiv);
@@ -136,11 +126,9 @@ function displayMovies() {
     });
 }
 
-// Инициализация
 populateFilters();
 displayMovies();
 
-// Обработчики событий
 searchBar.addEventListener('input', displayMovies);
 genreFilter.addEventListener('change', displayMovies);
 yearFilter.addEventListener('change', displayMovies);

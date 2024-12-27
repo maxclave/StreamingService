@@ -289,7 +289,7 @@ footer p {
 }
 
 .site-footer {
-  background-color: #1f1f1f; /* Тёмный фон */
+  background-color: #1f1f1f;
   color: #ccc;
   padding: 1rem 0;
   border-top: 1px solid #333;
@@ -298,20 +298,18 @@ footer p {
 
 .footer-container {
   max-width: 1200px;
-  margin: 0 auto;     /* Центрируем по горизонтали */
+  margin: 0 auto;
   padding: 0 1rem;
-  display: flex;      /* ВКЛЮЧАЕМ flex */
-  justify-content: space-between; /* Разносим детей по краям */
-  align-items: center; /* Выравниваем по вертикали */
-  /* Если хотите, чтобы на маленьких экранах они тоже оставались в 1 строке,
-     уберите или измените свойство flex-wrap. */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;    
 }
 
 /* Ссылки слева на одной строке */
 .footer-links {
   display: flex;
-  gap: 1rem;          /* Расстояние между ссылками */
+  gap: 1rem;  /* Расстояние между ссылками */
 }
 
 .footer-links a {
@@ -324,12 +322,11 @@ footer p {
   color: #fff;
 }
 
-/* Блок копирайта и соцсетей (справа) */
 .footer-copy {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 0;          /* Убираем любые внешние отступы */
+  margin: 0; 
 }
 
 .footer-copy p {
@@ -338,7 +335,7 @@ footer p {
 
 /* Соцсети */
 .footer-socials a {
-  margin-left: 0.5rem; /* либо используйте gap, если вы делаете .footer-socials { display: flex; } */
+  margin-left: 0.5rem;
 }
 
 .footer-socials a img {
@@ -350,11 +347,9 @@ footer p {
 }
 
 .footer-socials a:hover img {
-  filter: none;       /* Убираем серость при наведении */
+  filter: none; 
 }
 
-/* Адаптив: если хотите, чтобы на очень узком экране 
-   копирайт уходил вниз, оставляем flex-wrap: wrap в .footer-container */
 @media (max-width: 600px) {
   .footer-container {
     flex-direction: column;
