@@ -22,17 +22,25 @@ footer {
   border-bottom: 1px solid #333;
 }
 
+header .line-header {
+  /* background-color: #ff5722; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 header h1 {
   font-size: 1.5rem;
-  display: inline-block;
   color: #ff5722;
+  margin-right: 2rem;
 }
 
 .search-container {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
-  flex-wrap: wrap;
+  flex: 1;
+  max-width: 900px;
 }
 
 .search-container input {
@@ -44,7 +52,7 @@ header h1 {
   color: #fff;
   margin-right: 1rem;
   flex: 1;
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .search-container input::placeholder {
@@ -60,7 +68,7 @@ header h1 {
 .filters {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
+  flex: 1;
   flex-wrap: wrap;
 }
 
@@ -72,7 +80,12 @@ header h1 {
   background: #2c2c2c;
   color: #fff;
   margin-right: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.filters select:last-child {
+  margin-right: 0;
 }
 
 .filters select:focus {
@@ -125,6 +138,36 @@ footer p {
   position: relative;
 }
 
+@media (max-width: 1245px) {
+  header .line-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container {
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .search-container input {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 490px) {
+  .filters {
+    width: 100%;
+    flex-wrap: wrap-reverse;
+  }
+
+  .filters select {
+    margin-bottom: 10px;
+  }
+}
+
 .movie-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(255, 87, 34, 0.2);
@@ -132,7 +175,7 @@ footer p {
 
 .movie-poster {
   width: 100%;
-  height: 300px;
+  height: 365px;
   background-size: cover;
   background-position: center;
 }
