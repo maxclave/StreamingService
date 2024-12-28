@@ -1,7 +1,7 @@
 const movies = [
   {
     title: "Начало",
-    url: "https://example.com/inception.mp4",
+    url: "assets/inception.mp4",
     poster: "assets/inception.jpg",
     genre: "Научная фантастика",
     releaseDate: "2010",
@@ -55,28 +55,28 @@ const movies = [
     releaseDate: "1994",
     rating: 8.8
   },
-  {
-    title: "Криминальное чтиво",
-    url: "https://example.com/pulp_fiction.mp4",
-    poster: "assets/pulp_fiction.jpg",
-    genre: "Криминал",
-    releaseDate: "1994",
-    rating: 8.9
-  },
-  {
-    title: "Властелин колец: Братство кольца",
-    url: "https://example.com/lotr_fellowship.mp4",
-    poster: "assets/lotr_fellowship.jpg",
-    genre: "Фэнтези",
-    releaseDate: "2001",
-    rating: 8.8
-  },
-  {
-    title: "Звездные войны: Империя наносит ответный удар",
-    url: "https://example.com/empire_strikes_back.mp4",
-    poster: "assets/empire_strikes_back.jpg",
-    genre: "Научная фантастика",
-    releaseDate: "1980",
-    rating: 8.7
-  }
+  // {
+  //   title: "Криминальное чтиво",
+  //   url: "https://example.com/pulp_fiction.mp4",
+  //   poster: "assets/pulp_fiction.jpg",
+  //   genre: "Криминал",
+  //   releaseDate: "1994",
+  //   rating: 8.9
+  // },
+  // {
+  //   title: "Властелин колец: Братство кольца",
+  //   url: "https://example.com/lotr_fellowship.mp4",
+  //   poster: "assets/lotr_fellowship.jpg",
+  //   genre: "Фэнтези",
+  //   releaseDate: "2001",
+  //   rating: 8.8
+  // },
+  // {
+  //   title: "Звездные войны: Империя наносит ответный удар",
+  //   url: "https://example.com/empire_strikes_back.mp4",
+  //   poster: "assets/empire_strikes_back.jpg",
+  //   genre: "Научная фантастика",
+  //   releaseDate: "1980",
+  //   rating: 8.7
+  // }
 ];
